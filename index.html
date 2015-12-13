@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>payment</title>
+    <meta name="description" content="payment">
+    <meta name="viewport" content="width=device-width">
+    <style>
+      html, body {
+        height: 100%;
+      }
+      #app {
+        border: solid thin black;
+        height: 100%;
+      }
+      body {
+        padding: 8px;
+        background-color: #F6F6F6;
+        box-sizing: border-box;
+      }
+      .split {
+        -webkit-box-sizing: border-box;
+           -moz-box-sizing: border-box;
+                box-sizing: border-box;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+      .content {
+        border: 1px solid #C0C0C0;
+        padding: 10px;
+        box-shadow: inset 0 1px 2px #e4e4e4;
+        background-color: #fff;
+      }
+      .gutter {
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-position: 50%;
+      }
+      .gutter.gutter-horizontal {
+        cursor: col-resize;
+        /*//background-image: url('../grips/vertical.png');*/
+        background-color: #aaa;
+      }
+      .gutter.gutter-vertical {
+        cursor: row-resize;
+        /*//background-image: url('../grips/horizontal.png');*/
+        border: solid thin red;
+      }
+      .split.split-horizontal, .gutter.gutter-horizontal {
+        height: 100%;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div id="app">
+
+      <div id="left" class="split split-horizontal">
+        <div class='split content'>
+          CODE:
+          <Code-area></Code-area>
+        </div>
+      </div>
+      <div id="center" class="split split-horizontal">
+        <div class='split content'>
+          <Component-form></Component-form>
+        </div>
+      </div>
+      <div id="right" class="split split-horizontal">
+        <div class='split content'>
+          ALOHA:
+          <Aloha></Aloha>
+        </div>
+      </div>
+    </div>
+    <script src="./build/bundle.js"></script>
+  </body>
+</html>
