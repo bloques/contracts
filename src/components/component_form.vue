@@ -1,12 +1,23 @@
 <template>
-  <pre>Compoinent form {{greeting}}</pre>
+  <pre>Compoinent form</pre>
   <div v-for="entity in contractEntities">
-    name: {{entity.name}} type: {{entity.type}} required: {{entity.required}}
+
+    <component :is="entity.type" :contract="entity">
+    </component>
+  </div>
+  <hr/>
   <div>
+    {{contractValue | json }}
+  </div>
 </template>
 
 <script>
   import Aloha from './aloha.vue'
+
+  import StringField from './fields/string.vue'
+  import OtherField from './fields/other.vue'
+  import NumericField from './fields/numeric.vue'
+
   import { parseContract } from './contract_parser.js'
   export default {
     name: 'ComponentForm',
@@ -22,15 +33,22 @@
         }
       }
     },
-    computed: {
-      greeting: function(){
-        return "ALOHA!"
-      },
-      contractEntities: function(){
-        //console.log("----***")
-        //console.log(this)
-        return parseContract(this.contract)
+    data: function(){
+      // const dataTargets = _.mapObject(this.contract, function(val,key){
+      //   return {}
+      // })
+      return {
+        //targets: dataTargets,
+        contractEntities: parseContract(this.contract)
       }
-    }
+    },
+    computed: {
+      contractValue: function(){
+        return _.mapObject(this.contractEntities,function(v,k){
+          return v.value
+        })
+      }
+    },
+    components: { StringField, OtherField, NumericField }
   }
 </script>

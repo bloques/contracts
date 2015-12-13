@@ -1,6 +1,17 @@
 
 function resolveType(type){
-  return type === String ? "string" : "other"
+  switch (type) {
+    case String:
+      return "String-field"
+    case Number:
+      return "Numeric-field"
+    case Boolean:
+      return "Boolean-field"
+    default:
+      // Function/Object/Array
+      return "Other-field"
+  }
+  //return type === String ? "String-field" : "Other-field"
 }
 
 export function parseContract(contract){
@@ -10,7 +21,8 @@ export function parseContract(contract){
     const body = {
       name: k,
       type: resolveType(v.type),
-      required: v.required
+      required: v.required,
+      value: "aloha"
     }
     return [k,body]
   })

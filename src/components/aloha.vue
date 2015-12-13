@@ -1,6 +1,7 @@
 <template lang='jade!unindent'>
-pre This is the Aloha component
-h1 {{ greeting }}
+div
+  pre This is the Aloha component
+  h1 {{ greeting }}
 </template>
 
 <script>
@@ -14,6 +15,10 @@ h1 {{ greeting }}
       tel: {
         type: Number,
         required: false
+      },
+      owner: {
+        type: String,
+        required: true
       }
     },
     replace: false

@@ -1,6 +1,8 @@
 require("babel-polyfill")
 
 import Vue from 'vue'
+Vue.config.debug = true
+
 
 import Aloha from './components/aloha.vue'
 import CodeArea from './components/code_area.vue'
