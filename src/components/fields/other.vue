@@ -1,4 +1,4 @@
-<template lang='jade!unindent'>
+<template lang='jade'>
 div
   pre SONO OTHER
 </template>
